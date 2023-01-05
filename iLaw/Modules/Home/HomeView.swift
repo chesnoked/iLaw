@@ -21,7 +21,7 @@ struct HomeView: View {
                       y: geo.frame(in: .local).midY)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.palette.parent)
+        .background(Color.palette.lead)
     }
     private var navBarSubView: some View {
         Text("home".capitalized)
@@ -29,7 +29,7 @@ struct HomeView: View {
             .foregroundColor(Color.palette.mercury)
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.palette.child)
+            .background(Color.palette.indigo)
     }
 }
 

@@ -8,23 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedTab: Int
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
+                .tag(1)
             ProfileView()
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill.badge.checkmark")
                 }
+                .tag(2)
         }
-        .accentColor(Color.palette.child)
+        .accentColor(Color.palette.indigo)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(selectedTab: 1)
     }
 }

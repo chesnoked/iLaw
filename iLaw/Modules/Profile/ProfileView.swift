@@ -9,10 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject private var vm: ProfileViewModel = ProfileViewModel()
-    @State private var selectedAuthMethod: AuthMethod = .signin
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
     var body: some View {
         GeometryReader { geo in
             navBarSubView
@@ -24,12 +20,14 @@ struct ProfileView: View {
                 authButtonSubView
             }
             .padding()
+            .background(Color.palette.indigo).cornerRadius(12)
+            .padding()
             .position(x: geo.frame(in: .local).midX,
                       y: geo.frame(in: .local).midY)
             .animation(.linear(duration: 0.17).delay(0.22))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.palette.parent)
+        .background(Color.palette.lead)
     }
 }
 
@@ -46,49 +44,52 @@ extension ProfileView {
             .foregroundColor(Color.palette.mercury)
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.palette.child)
+            .background(Color.palette.indigo)
     }
     private var usernameSubView: some View {
-        TextField("email", text: $username)
+        TextField("email", text: $vm.authFields.username)
             .font(.headline)
             .foregroundColor(Color.palette.mercury)
             .padding()
-            .background(Color.palette.child)
+            .background(Color.palette.lead)
             .cornerRadius(13)
     }
     private var passwordSubView: some View {
-        SecureField("password", text: $password)
+        SecureField("password", text: $vm.authFields.password)
             .font(.headline)
             .foregroundColor(Color.palette.mercury)
             .padding()
-            .background(Color.palette.child)
+            .background(Color.palette.lead)
             .cornerRadius(13)
     }
     @ViewBuilder private var confirmPasswordSubView: some View {
-        if selectedAuthMethod == .signup {
-            SecureField("confirm password", text: $confirmPassword)
+        if vm.selectedAuthMethod == .signup {
+            SecureField("confirm password", text: $vm.authFields.confirmPassword)
                 .font(.headline)
                 .foregroundColor(Color.palette.mercury)
                 .padding()
-                .background(Color.palette.child)
+                .background(Color.palette.lead)
                 .cornerRadius(13)
         }
     }
     private var authMethodPickerSubView: some View {
-        Picker("", selection: $selectedAuthMethod) {
+        Picker("", selection: $vm.selectedAuthMethod) {
             Text(AuthMethod.signin.rawValue).tag(AuthMethod.signin)
             Text(AuthMethod.signup.rawValue).tag(AuthMethod.signup)
         }
         .pickerStyle(.segmented)
         .frame(width: 150)
     }
-    private var authButtonSubView: some View {
-        Button(action: {
-//            vm.signUpWithEscaping(email: username, password: password)
-            vm.signUpWithAsync(email: username, password: password)
-        }, label: {
-            Image(systemName: "arrowshape.right.fill")
-                .foregroundColor(Color.palette.mercury)
-        })
+    @ViewBuilder private var authButtonSubView: some View {
+        if vm.authFieldsIsValidity {
+            Button(action: {
+                vm.authUserWithEscaping()
+//                vm.authUserWithAsync()
+                vm.signOut()
+            }, label: {
+                Image(systemName: "arrowshape.right.fill")
+                    .foregroundColor(Color.palette.mercury)
+            })
+        }
     }
 }

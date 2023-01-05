@@ -14,6 +14,6 @@ extension Color {
 
 struct Palette {
     let mercury: Color = Color("mercury")
-    let parent: Color = Color("parent")
-    let child: Color = Color.indigo
+    let lead: Color = Color("lead")
+    let indigo: Color = Color.indigo
 }
