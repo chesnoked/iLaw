@@ -21,6 +21,11 @@ struct ContentView: View {
                     Image(systemName: "person.crop.circle.fill.badge.checkmark")
                 }
                 .tag(2)
+            WelcomeView()
+                .tabItem {
+                    Image(systemName: "wrench.and.screwdriver.fill")
+                }
+                .tag(3)
         }
         .accentColor(Color.palette.indigo)
     }
@@ -31,3 +36,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView(selectedTab: 1)
     }
 }
+
