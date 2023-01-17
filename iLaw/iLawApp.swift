@@ -21,8 +21,7 @@ struct iLawApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-//            WelcomeView()
-            ContentView(selectedTab: 1)
+            WelcomeView()
                 .preferredColorScheme(.dark)
         }
     }

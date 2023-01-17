@@ -11,7 +11,7 @@ struct ProfileView: View {
     @StateObject private var vm: ProfileViewModel = ProfileViewModel()
     var body: some View {
         GeometryReader { geo in
-            navBarSubView
+            CustomNavBar(title: vm.user?.email ?? "profile".capitalized)
             VStack(spacing: 10) {
                 usernameSubView
                 passwordSubView
@@ -38,14 +38,6 @@ struct ProfileView_Previews: PreviewProvider {
 }
 
 extension ProfileView {
-    private var navBarSubView: some View {
-        Text(vm.user?.email ?? "profile".capitalized)
-            .font(.system(.largeTitle, design: .rounded, weight: .black))
-            .foregroundColor(Color.palette.mercury)
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.palette.indigo)
-    }
     private var usernameSubView: some View {
         TextField("email", text: $vm.authFields.username)
             .font(.headline)

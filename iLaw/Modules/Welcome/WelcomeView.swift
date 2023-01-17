@@ -16,33 +16,63 @@ import SwiftUI
 struct WelcomeView: View {
     @State private var goToHome: Bool = false
     var body: some View {
-        ZStack {
-            // up layer
-            GoToHome()
-            // down layer
-            VStack(spacing: 0) {
-                appLabel
-                Welcome()
-            }
+        GeometryReader { geo in
+            AppLabel()
+                .zIndex(1)
+                .position(x: geo.frame(in: .local).midX,
+                          y: geo.size.height / 4)
+            Welcome(geo)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Image("canvas"))
+        .ignoresSafeArea()
+    }
+    private func Welcome(_ geo: GeometryProxy) -> some View {
+        TabView {
+            WelcomeBlock(geo, "canvas1") {
+                Text("Welcome block 1")
+            }
+            WelcomeBlock(geo, "canvas2") {
+                Text("Welcome block 2")
+            }
+            WelcomeBlock(geo, "canvas3") {
+                goToHomeButton
+            }
+        }
+        .tabViewStyle(.page)
+    }
+    struct WelcomeBlock<Content:View>:View {
+        
+        init(_ geo: GeometryProxy, _ image: String, @ViewBuilder content: () -> Content) {
+            self.geo = geo
+            self.image = image
+            self.content = content()
+        }
+        let geo: GeometryProxy
+        let content: Content
+        let image: String
+        var body: some View {
+            content
+                .font(.system(size: 24, weight: .light, design: .rounded))
+                .foregroundColor(Color.palette.mercury)
+                .frame(maxWidth: .infinity)
+                .frame(height: 150)
+                .background(Color.palette.lead)
+                .divider(.top)
+                .divider(.bottom)
+                .position(x: geo.size.width / 2,
+                          y: geo.size.height * 3 / 4)
+                .background(
+                    ZStack {
+                        Image(image)
+                        Color.black.opacity(0.37).blur(radius: 5)
+                    }
+                )
+        }
     }
 }
 
+// MARK: Welcome
 extension WelcomeView {
-    struct WelcomeBlock<Content:View>:View {
-        
-        init(@ViewBuilder content: () -> Content) {
-            self.content = content()
-        }
-        
-        let content: Content
-        var body: some View {
-            content
-                .foregroundColor(Color.palette.mercury)
-        }
-    }
     private var goToHomeButton: some View {
         Button(action: {
             withAnimation(.linear(duration: 0.12)) {
@@ -59,46 +89,17 @@ extension WelcomeView {
                 .shadow(color: .white, radius: 1.23, x: 1, y: -1)
         })
     }
-    private func Welcome() -> some View {
-        TabView {
-            WelcomeBlock {
-                Text("Welcome block 1")
-            }
-            WelcomeBlock {
-                Text("Welcome block 2")
-            }
-            WelcomeBlock {
-                goToHomeButton
-            }
-        }
-        .tabViewStyle(.page)
-    }
 }
 
+// MARK: App label
 extension WelcomeView {
-    @ViewBuilder
-    private func GoToHome() -> some View {
-        if goToHome {
-            ContentView(selectedTab: 1)
-                .transition(.opacity)
-                .zIndex(1)
-        }
-    }
-    private var appLabel: some View {
+    private func AppLabel() -> some View {
         VStack(spacing: 15) {
-            appLogo
-//            appTitle
+            AppLogo()
+//            AppTitle()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.ultraThinMaterial)
-        .environment(\.colorScheme, .dark)
-//        .overlay(alignment: .bottom) {
-//            Rectangle()
-//                .frame(height: 1)
-//                .foregroundColor(.white)
-//        }
     }
-    private var appLogo: some View {
+    private func AppLogo() -> some View {
         Image("app-logo")
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -114,7 +115,7 @@ extension WelcomeView {
                     .stroke(
                         LinearGradient(colors: .init([
                             .clear,
-                            Color.palette.mercury,
+                            Color.palette.lead,
                             .clear
                         ]),
                                        startPoint: .topLeading,
@@ -125,10 +126,21 @@ extension WelcomeView {
                     .shadow(color: Color.palette.mercury.opacity(0.44), radius: 5, x: 0, y: 0)
             }
     }
-    private var appTitle: some View {
+    private func AppTitle() -> some View {
         Text("iLaw")
             .font(.system(.title3, design: .monospaced, weight: .semibold))
             .foregroundColor(Color.palette.mercury)
+    }
+}
+
+extension WelcomeView {
+    @ViewBuilder
+    private func GoToHome() -> some View {
+        if goToHome {
+            HomeView()
+                .transition(.opacity)
+                .zIndex(1)
+        }
     }
 }
 

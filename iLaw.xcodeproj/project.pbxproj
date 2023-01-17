@@ -13,13 +13,14 @@
 		961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE429641A980055629F /* ProfileViewModel.swift */; };
 		961F3EE729641B9A0055629F /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE629641B9A0055629F /* UserDataService.swift */; };
 		965BC93F29640AC600C2DC9B /* iLawApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC93E29640AC600C2DC9B /* iLawApp.swift */; };
-		965BC94129640AC600C2DC9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94029640AC600C2DC9B /* ContentView.swift */; };
+		965BC94129640AC600C2DC9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94029640AC600C2DC9B /* HomeView.swift */; };
 		965BC94329640AC800C2DC9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965BC94229640AC800C2DC9B /* Assets.xcassets */; };
 		965BC94729640AC800C2DC9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965BC94629640AC800C2DC9B /* Preview Assets.xcassets */; };
-		965BC94E29640BC600C2DC9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94D29640BC600C2DC9B /* HomeView.swift */; };
+		965BC94E29640BC600C2DC9B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94D29640BC600C2DC9B /* StartView.swift */; };
 		965BC95029640BD600C2DC9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94F29640BD600C2DC9B /* ProfileView.swift */; };
 		965BC95229640D3300C2DC9B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC95129640D3300C2DC9B /* ColorTheme.swift */; };
 		96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9B3072966C47400D787A7 /* WelcomeView.swift */; };
+		96FF1E7729768FD600317349 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF1E7629768FD600317349 /* CustomNavBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +31,15 @@
 		961F3EE629641B9A0055629F /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		965BC93B29640AC600C2DC9B /* iLaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965BC93E29640AC600C2DC9B /* iLawApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLawApp.swift; sourceTree = "<group>"; };
-		965BC94029640AC600C2DC9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		965BC94029640AC600C2DC9B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		965BC94229640AC800C2DC9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		965BC94429640AC800C2DC9B /* iLaw.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLaw.entitlements; sourceTree = "<group>"; };
 		965BC94629640AC800C2DC9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		965BC94D29640BC600C2DC9B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		965BC94D29640BC600C2DC9B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		965BC94F29640BD600C2DC9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		965BC95129640D3300C2DC9B /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		96C9B3072966C47400D787A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		96FF1E7629768FD600317349 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		C365279F811A9057C800689A /* Pods_iLaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC24598BEC8DD769EEE6634B /* Pods-iLaw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLaw.debug.xcconfig"; path = "Target Support Files/Pods-iLaw/Pods-iLaw.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,12 +73,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		961F3EDF29641A2A0055629F /* Home */ = {
+		961F3EDF29641A2A0055629F /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				965BC94D29640BC600C2DC9B /* HomeView.swift */,
+				965BC94D29640BC600C2DC9B /* StartView.swift */,
 			);
-			path = Home;
+			path = Start;
 			sourceTree = "<group>";
 		};
 		961F3EE029641A310055629F /* Profile */ = {
@@ -93,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				96C9B3092966C48300D787A7 /* Welcome */,
-				961F3EDF29641A2A0055629F /* Home */,
+				961F3EDF29641A2A0055629F /* Start */,
 				961F3EE029641A310055629F /* Profile */,
 			);
 			path = Modules;
@@ -120,10 +122,10 @@
 		965BC93D29640AC600C2DC9B /* iLaw */ = {
 			isa = PBXGroup;
 			children = (
-				961F3EDE2964148A0055629F /* Services */,
-				965BC95329640D3A00C2DC9B /* Extensions */,
 				965BC93E29640AC600C2DC9B /* iLawApp.swift */,
-				965BC94029640AC600C2DC9B /* ContentView.swift */,
+				965BC94029640AC600C2DC9B /* HomeView.swift */,
+				961F3EDE2964148A0055629F /* Services */,
+				96FF1E792976918500317349 /* Global */,
 				961F3EE129641A390055629F /* Modules */,
 				965BC94229640AC800C2DC9B /* Assets.xcassets */,
 				965BC94429640AC800C2DC9B /* iLaw.entitlements */,
@@ -154,6 +156,23 @@
 				96C9B3072966C47400D787A7 /* WelcomeView.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		96FF1E782976917200317349 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				96FF1E7629768FD600317349 /* CustomNavBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		96FF1E792976918500317349 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				96FF1E782976917200317349 /* Components */,
+				965BC95329640D3A00C2DC9B /* Extensions */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		B1AB3BFB6A860EBF942E8C55 /* Pods */ = {
@@ -283,10 +302,11 @@
 				965BC95029640BD600C2DC9B /* ProfileView.swift in Sources */,
 				965BC95229640D3300C2DC9B /* ColorTheme.swift in Sources */,
 				961F3EE729641B9A0055629F /* UserDataService.swift in Sources */,
-				965BC94E29640BC600C2DC9B /* HomeView.swift in Sources */,
+				965BC94E29640BC600C2DC9B /* StartView.swift in Sources */,
+				96FF1E7729768FD600317349 /* CustomNavBar.swift in Sources */,
 				96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */,
 				961F3EE329641A500055629F /* ProfileModel.swift in Sources */,
-				965BC94129640AC600C2DC9B /* ContentView.swift in Sources */,
+				965BC94129640AC600C2DC9B /* HomeView.swift in Sources */,
 				965BC93F29640AC600C2DC9B /* iLawApp.swift in Sources */,
 				961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */,
 			);
