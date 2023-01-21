@@ -21,8 +21,9 @@ struct iLawApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            HomeView()
                 .preferredColorScheme(.dark)
+                .statusBarHidden()
         }
     }
 }

@@ -14,17 +14,22 @@ struct WelcomeView_Previews: PreviewProvider {
 import SwiftUI
 
 struct WelcomeView: View {
-    @State private var goToHome: Bool = false
+    @State private var goToStart: Bool = false
     var body: some View {
         GeometryReader { geo in
-            AppLabel()
-                .zIndex(1)
-                .position(x: geo.frame(in: .local).midX,
-                          y: geo.size.height / 4)
-            Welcome(geo)
+            GoToStart()
+            if !goToStart {
+                Group {
+                    AppLabel()
+                        .zIndex(1)
+                        .position(x: geo.frame(in: .local).midX,
+                                  y: geo.size.height / 4)
+                    Welcome(geo)
+                }
+                .ignoresSafeArea()
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
     }
     private func Welcome(_ geo: GeometryProxy) -> some View {
         TabView {
@@ -35,7 +40,7 @@ struct WelcomeView: View {
                 Text("Welcome block 2")
             }
             WelcomeBlock(geo, "canvas3") {
-                goToHomeButton
+                goToStartButton
             }
         }
         .tabViewStyle(.page)
@@ -56,9 +61,9 @@ struct WelcomeView: View {
                 .foregroundColor(Color.palette.mercury)
                 .frame(maxWidth: .infinity)
                 .frame(height: 150)
-                .background(Color.palette.lead)
-                .divider(.top)
-                .divider(.bottom)
+                .background(Color.palette.lead.opacity(0.66).blur(radius: 1.23))
+                .divider(linewidth: 0.37, .top)
+                .divider(linewidth: 0.37, .bottom)
                 .position(x: geo.size.width / 2,
                           y: geo.size.height * 3 / 4)
                 .background(
@@ -73,10 +78,10 @@ struct WelcomeView: View {
 
 // MARK: Welcome
 extension WelcomeView {
-    private var goToHomeButton: some View {
+    private var goToStartButton: some View {
         Button(action: {
             withAnimation(.linear(duration: 0.12)) {
-                goToHome = true
+                goToStart = true
             }
         }, label: {
             Text("get experience ...")
@@ -86,7 +91,7 @@ extension WelcomeView {
                 .background(.ultraThinMaterial)
                 .environment(\.colorScheme, .dark)
                 .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-                .shadow(color: .white, radius: 1.23, x: 1, y: -1)
+                .shadow(color: .white, radius: 0.1, x: 1, y: -1)
         })
     }
 }
@@ -135,12 +140,11 @@ extension WelcomeView {
 
 extension WelcomeView {
     @ViewBuilder
-    private func GoToHome() -> some View {
-        if goToHome {
-            HomeView()
+    private func GoToStart() -> some View {
+        if goToStart {
+            HomeView(selectedTab: .start)
                 .transition(.opacity)
                 .zIndex(1)
         }
     }
 }
-

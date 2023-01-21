@@ -20,7 +20,7 @@ enum TabBarItems: String, CaseIterable {
 }
 
 struct HomeView: View {
-    @State private var selectedTab: TabBarItems = .start
+    @State var selectedTab: TabBarItems = .start
     var body: some View {
         ZStack {
             VStack(spacing: 0) {

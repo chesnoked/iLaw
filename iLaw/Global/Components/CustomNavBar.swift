@@ -27,7 +27,7 @@ struct CustomNavBar: View {
 }
 
 extension View {
-    func divider(_ alignment: Alignment) -> some View {
+    func divider(linewidth: CGFloat = 1.0, _ alignment: Alignment) -> some View {
         self
             .overlay(alignment: alignment) {
                 Rectangle()
@@ -40,7 +40,7 @@ extension View {
                                        startPoint: .leading,
                                        endPoint: .trailing)
                     )
-                    .frame(height: 1)
+                    .frame(height: linewidth)
             }
     }
 }
