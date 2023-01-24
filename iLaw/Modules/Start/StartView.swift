@@ -18,7 +18,7 @@ struct StartView: View {
     var body: some View {
         GeometryReader { _ in
             VStack(spacing: 0) {
-                CustomNavBar(title: "Start")
+                CustomNavBar(testVM: testVM, title: "Start", addButton: true)
                 QuestionsV2()
             }
         }
@@ -31,7 +31,7 @@ extension StartView {
         ScrollView(.vertical, showsIndicators: true) {
             VStack(spacing: 10) {
                 ForEach(testVM.questions) { question in
-                    Text(question.title)
+                    Text(question.title ?? "")
                         .font(.system(size: 23, weight: .semibold, design: .rounded))
                         .foregroundColor(Color.palette.mercury)
                         .padding()
@@ -52,16 +52,16 @@ extension StartView {
 }
 
 extension StartView {
-    private func Title(_ question: QuestionModel) -> some View {
-        Text(question.title)
+    private func Title(_ question: QuestionEntity) -> some View {
+        Text(question.title ?? "")
             .font(.system(size: 23, weight: .semibold, design: .rounded))
             .foregroundColor(Color.palette.mercury)
     }
-    private func QuestionRow(_ question: QuestionModel) -> some View {
+    private func QuestionRow(_ question: QuestionEntity) -> some View {
         VStack(spacing: 10) {
             Title(question)
             // MARK: Text
-            Text(question.text)
+            Text(question.text ?? "")
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .center)

@@ -11,7 +11,7 @@ struct ProfileView: View {
     @StateObject private var vm: ProfileViewModel = ProfileViewModel()
     var body: some View {
         GeometryReader { geo in
-            CustomNavBar(title: vm.user?.email ?? "profile".capitalized)
+//            CustomNavBar(title: vm.user?.email ?? "profile".capitalized)
             VStack(spacing: 10) {
                 usernameSubView
                 passwordSubView

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		09EBB85538E3AFF2870EBBCB /* Pods_iLaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C365279F811A9057C800689A /* Pods_iLaw.framework */; };
+		96051DC1297FC0D00073FAC6 /* MyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96051DBF297FC0D00073FAC6 /* MyContainer.xcdatamodeld */; };
+		96051DC4297FC1ED0073FAC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96051DC3297FC1ED0073FAC6 /* CoreDataManager.swift */; };
 		961F3EDD296414870055629F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961F3EDC296414870055629F /* GoogleService-Info.plist */; };
 		961F3EE329641A500055629F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE229641A500055629F /* ProfileModel.swift */; };
 		961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE429641A980055629F /* ProfileViewModel.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		09027DD8672AE1A8F86094F2 /* Pods-iLaw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLaw.release.xcconfig"; path = "Target Support Files/Pods-iLaw/Pods-iLaw.release.xcconfig"; sourceTree = "<group>"; };
+		96051DC0297FC0D00073FAC6 /* MyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyContainer.xcdatamodel; sourceTree = "<group>"; };
+		96051DC3297FC1ED0073FAC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		961F3EDC296414870055629F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		961F3EE229641A500055629F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		961F3EE429641A980055629F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 				C365279F811A9057C800689A /* Pods_iLaw.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96051DC2297FC0D80073FAC6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				96051DBF297FC0D00073FAC6 /* MyContainer.xcdatamodeld */,
+				96051DC3297FC1ED0073FAC6 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		961F3EDE2964148A0055629F /* Services */ = {
@@ -127,6 +140,7 @@
 			children = (
 				965BC93E29640AC600C2DC9B /* iLawApp.swift */,
 				965BC94029640AC600C2DC9B /* HomeView.swift */,
+				96051DC2297FC0D80073FAC6 /* CoreData */,
 				961F3EDE2964148A0055629F /* Services */,
 				96FF1E792976918500317349 /* Global */,
 				961F3EE129641A390055629F /* Modules */,
@@ -309,8 +323,10 @@
 				965BC94E29640BC600C2DC9B /* StartView.swift in Sources */,
 				96FF1E7729768FD600317349 /* CustomNavBar.swift in Sources */,
 				96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */,
+				96051DC4297FC1ED0073FAC6 /* CoreDataManager.swift in Sources */,
 				961F3EE329641A500055629F /* ProfileModel.swift in Sources */,
 				965BC94129640AC600C2DC9B /* HomeView.swift in Sources */,
+				96051DC1297FC0D00073FAC6 /* MyContainer.xcdatamodeld in Sources */,
 				965BC93F29640AC600C2DC9B /* iLawApp.swift in Sources */,
 				961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */,
 			);
@@ -528,6 +544,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		96051DBF297FC0D00073FAC6 /* MyContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				96051DC0297FC0D00073FAC6 /* MyContainer.xcdatamodel */,
+			);
+			currentVersion = 96051DC0297FC0D00073FAC6 /* MyContainer.xcdatamodel */;
+			path = MyContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 965BC93329640AC600C2DC9B /* Project object */;
 }
