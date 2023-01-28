@@ -10,10 +10,9 @@ import CoreData
 
 class CoreDataManager {
     
-    static let shared: CoreDataManager = CoreDataManager()
+    @Published var questions: [QuestionEntity] = []
     
     let container: NSPersistentContainer
-    let context: NSManagedObjectContext
     
     init() {
         container = NSPersistentContainer(name: "MyContainer")
@@ -22,14 +21,45 @@ class CoreDataManager {
                 print("Error loading from Core Data : \(error.localizedDescription)")
             }
         }
-        context = container.viewContext
+        fetchQuestions()
+    }
+
+    private func fetchQuestions() {
+        let request = NSFetchRequest<QuestionEntity>(entityName: "QuestionEntity")
+        do {
+            self.questions = try container.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetch questions from Core Data : \(error.localizedDescription)")
+        }
     }
     
-    func save() {
+    private func save() {
         do {
-            try context.save()
+            try container.viewContext.save()
         } catch let error {
             print("Error saving to Core Data : \(error.localizedDescription)")
         }
+    }
+    
+    func applyChanges() {
+        save()
+        fetchQuestions()
+    }
+    
+    // get questions on start
+    private func getQuestionsOnStart(count: Int16) {
+        (1...count).forEach { index in
+            let question = QuestionEntity(context: container.viewContext)
+            question.id = index
+            question.text = "text"
+            save()
+        }
+    }
+    
+    func addQuestion(_ id: Int16, text: String) {
+        let question = QuestionEntity(context: container.viewContext)
+        question.id = id
+        question.text = text
+        applyChanges()
     }
 }

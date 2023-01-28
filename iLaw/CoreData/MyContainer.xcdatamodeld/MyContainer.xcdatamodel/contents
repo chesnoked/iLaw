@@ -3,6 +3,5 @@
     <entity name="QuestionEntity" representedClassName="QuestionEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text" attributeType="String"/>
-        <attribute name="title" attributeType="String"/>
     </entity>
 </model>

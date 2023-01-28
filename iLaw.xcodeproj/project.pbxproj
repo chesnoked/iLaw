@@ -21,9 +21,9 @@
 		965BC94E29640BC600C2DC9B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94D29640BC600C2DC9B /* StartView.swift */; };
 		965BC95029640BD600C2DC9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94F29640BD600C2DC9B /* ProfileView.swift */; };
 		965BC95229640D3300C2DC9B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC95129640D3300C2DC9B /* ColorTheme.swift */; };
-		966D23C4297BD02D00A054CD /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D23C3297BD02D00A054CD /* TestManager.swift */; };
+		965E364329850F2B0078DE4F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E364229850F2B0078DE4F /* CustomDivider.swift */; };
+		966D23C4297BD02D00A054CD /* TestManagerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D23C3297BD02D00A054CD /* TestManagerVM.swift */; };
 		96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9B3072966C47400D787A7 /* WelcomeView.swift */; };
-		96FF1E7729768FD600317349 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF1E7629768FD600317349 /* CustomNavBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +43,9 @@
 		965BC94D29640BC600C2DC9B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		965BC94F29640BD600C2DC9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		965BC95129640D3300C2DC9B /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
-		966D23C3297BD02D00A054CD /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
+		965E364229850F2B0078DE4F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		966D23C3297BD02D00A054CD /* TestManagerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManagerVM.swift; sourceTree = "<group>"; };
 		96C9B3072966C47400D787A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		96FF1E7629768FD600317349 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		C365279F811A9057C800689A /* Pods_iLaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC24598BEC8DD769EEE6634B /* Pods-iLaw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLaw.debug.xcconfig"; path = "Target Support Files/Pods-iLaw/Pods-iLaw.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +91,7 @@
 		961F3EDF29641A2A0055629F /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				966D23C3297BD02D00A054CD /* TestManager.swift */,
+				966D23C3297BD02D00A054CD /* TestManagerVM.swift */,
 				965BC94D29640BC600C2DC9B /* StartView.swift */,
 			);
 			path = Start;
@@ -178,7 +178,7 @@
 		96FF1E782976917200317349 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				96FF1E7629768FD600317349 /* CustomNavBar.swift */,
+				965E364229850F2B0078DE4F /* CustomDivider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,10 +318,10 @@
 			files = (
 				965BC95029640BD600C2DC9B /* ProfileView.swift in Sources */,
 				965BC95229640D3300C2DC9B /* ColorTheme.swift in Sources */,
-				966D23C4297BD02D00A054CD /* TestManager.swift in Sources */,
+				966D23C4297BD02D00A054CD /* TestManagerVM.swift in Sources */,
 				961F3EE729641B9A0055629F /* UserDataService.swift in Sources */,
 				965BC94E29640BC600C2DC9B /* StartView.swift in Sources */,
-				96FF1E7729768FD600317349 /* CustomNavBar.swift in Sources */,
+				965E364329850F2B0078DE4F /* CustomDivider.swift in Sources */,
 				96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */,
 				96051DC4297FC1ED0073FAC6 /* CoreDataManager.swift in Sources */,
 				961F3EE329641A500055629F /* ProfileModel.swift in Sources */,
