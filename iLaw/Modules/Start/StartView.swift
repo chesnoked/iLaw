@@ -18,6 +18,8 @@ struct StartView: View {
     @State private var showDropMenu: Bool = false
     @State private var id: String = ""
     @State private var text: String = ""
+    @State private var amount: Int = 4
+    @State private var isValid: Bool = false
     var body: some View {
         VStack(spacing: 0) {
             NavBar()
@@ -26,7 +28,7 @@ struct StartView: View {
                     DropMenu()
                         .padding()
                 } else {
-                    QuestionsList()
+                    Questions()
                 }
             }
         }
@@ -75,60 +77,87 @@ extension StartView {
         testVM.addQuestion(id, text)
     }
     private func DropMenu() -> some View {
-        VStack(alignment: .leading) {
-            TextField("id", text: $id)
-                .font(.headline)
-                .foregroundColor(Color.black)
-                .environment(\.colorScheme, .light)
-                .padding(5)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                .frame(maxWidth: 50)
-            TextEditor(text: $text)
-                .environment(\.colorScheme, .light)
-                .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                .overlay(alignment: .topLeading) {
-                    Text(self.text.isEmpty ? "text" : "")
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                Text("Question")
+                    .font(.headline)
+                    .foregroundColor(Color.palette.mercury)
+                QuestionId()
+                QuestionText()
+                HStack {
+                    Text("Answers")
                         .font(.headline)
-                        .foregroundColor(.black)
-                        .opacity(0.3)
-                        .padding(3)
+                        .foregroundColor(Color.palette.mercury)
+                    Spacer()
+                    Picker(selection: $amount) {
+                        ForEach(1...10, id: \.self) { index in
+                            Text("\(index)")
+                                .tag(index)
+                        }
+                    } label: {
+                        Text("\(amount)")
+                    }
                 }
+                ForEach(1...amount, id: \.self) { index in
+                    // MARK: answers
+                    HStack {
+                        TextEditor(text: $text)
+                            .environment(\.colorScheme, .light)
+                            .frame(height: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                            .overlay(alignment: .topLeading) {
+                                Text(self.text.isEmpty ? "answer \(index)" : "")
+                                    .font(.headline)
+                                    .foregroundColor(.black)
+                                    .opacity(0.3)
+                                    .padding(3)
+                            }
+                        Toggle("", isOn: $isValid)
+                            .labelsHidden()
+                            .padding(.horizontal)
+                    }
+                }
+            }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+}
+
+extension StartView {
+    private func QuestionId() -> some View {
+        TextField("id", text: $id)
+            .font(.headline)
+            .foregroundColor(Color.black)
+            .environment(\.colorScheme, .light)
+            .padding(5)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+            .frame(maxWidth: 50)
+    }
+    private func QuestionText() -> some View {
+        TextEditor(text: $text)
+            .environment(\.colorScheme, .light)
+            .frame(height: 150)
+            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+            .overlay(alignment: .topLeading) {
+                Text(self.text.isEmpty ? "text" : "")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .opacity(0.3)
+                    .padding(3)
+            }
     }
 }
 
 extension StartView {
-    private func QuestionsList() -> some View {
-        List {
-            ForEach(testVM.questions) { question in
-                QuestionRow(question)
+    private func Questions() -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 16) {
+                ForEach(testVM.questions) { question in
+                    QuestionItem(question: question)
+                }
             }
-            .listRowBackground(Color.palette.lead)
-            .listRowSeparator(Visibility.hidden)
+            .padding()
         }
-        .scrollContentBackground(Visibility.hidden)
-    }
-    private func QuestionRow(_ question: QuestionModel) -> some View {
-        VStack(spacing: 10) {
-            Title(question)
-            Text(question.text)
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .center)
-        .frame(height: 300, alignment: .top)
-        .background(
-            ZStack {
-                Color.white
-                Color.palette.indigo.opacity(0.66).blur(radius: 1.23)
-            }
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-    }
-    private func Title(_ question: QuestionModel) -> some View {
-        Text(question.title)
-            .font(.system(size: 23, weight: .semibold, design: .rounded))
-            .foregroundColor(Color.palette.mercury)
     }
 }

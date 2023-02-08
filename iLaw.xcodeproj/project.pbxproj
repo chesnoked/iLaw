@@ -24,6 +24,7 @@
 		965E364329850F2B0078DE4F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E364229850F2B0078DE4F /* CustomDivider.swift */; };
 		966D23C4297BD02D00A054CD /* TestManagerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D23C3297BD02D00A054CD /* TestManagerVM.swift */; };
 		96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9B3072966C47400D787A7 /* WelcomeView.swift */; };
+		96D4C1B129939541001289A2 /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C1B029939540001289A2 /* QuestionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		965E364229850F2B0078DE4F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		966D23C3297BD02D00A054CD /* TestManagerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManagerVM.swift; sourceTree = "<group>"; };
 		96C9B3072966C47400D787A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		96D4C1B029939540001289A2 /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
 		C365279F811A9057C800689A /* Pods_iLaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC24598BEC8DD769EEE6634B /* Pods-iLaw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLaw.debug.xcconfig"; path = "Target Support Files/Pods-iLaw/Pods-iLaw.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 			children = (
 				966D23C3297BD02D00A054CD /* TestManagerVM.swift */,
 				965BC94D29640BC600C2DC9B /* StartView.swift */,
+				96D4C1B029939540001289A2 /* QuestionItem.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				96051DC4297FC1ED0073FAC6 /* CoreDataManager.swift in Sources */,
 				961F3EE329641A500055629F /* ProfileModel.swift in Sources */,
 				965BC94129640AC600C2DC9B /* HomeView.swift in Sources */,
+				96D4C1B129939541001289A2 /* QuestionItem.swift in Sources */,
 				96051DC1297FC0D00073FAC6 /* MyContainer.xcdatamodeld in Sources */,
 				965BC93F29640AC600C2DC9B /* iLawApp.swift in Sources */,
 				961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */,

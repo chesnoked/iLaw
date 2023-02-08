@@ -13,17 +13,20 @@ import Combine
 // MARK: Question model
 struct QuestionModel: Identifiable {
     
-    init(id: Int16, text: String) {
+    init(id: Int16, text: String, answers: [String:Bool] = [:]) {
         self.id = id
         self.text = text
+        self.answers = answers
     }
     
-    
     let id: Int16
+    let text: String
+    let answers: [String : Bool]
+    
     var title: String {
         return "Question №\(id)"
     }
-    let text: String
+    
 }
 
 // MARK: View model
@@ -32,6 +35,7 @@ class TestManager: ObservableObject {
     private let manager = CoreDataManager()
     
     @Published var questions: [QuestionModel] = []
+    @Published var newQuestion: QuestionModel? = nil
     private var cancellables = Set<AnyCancellable>()
     
     init() {
