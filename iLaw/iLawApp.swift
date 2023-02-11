@@ -19,11 +19,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct iLawApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    @StateObject private var testVM: TestManager = TestManager()
     var body: some Scene {
         WindowGroup {
             HomeView()
                 .preferredColorScheme(.dark)
                 .statusBarHidden()
+                .environmentObject(testVM)
         }
     }
 }

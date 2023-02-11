@@ -10,25 +10,6 @@ import SwiftUI
 import CoreData
 import Combine
 
-// MARK: Question model
-struct QuestionModel: Identifiable {
-    
-    init(id: Int16, text: String, answers: [String:Bool] = [:]) {
-        self.id = id
-        self.text = text
-        self.answers = answers
-    }
-    
-    let id: Int16
-    let text: String
-    let answers: [String : Bool]
-    
-    var title: String {
-        return "Question №\(id)"
-    }
-    
-}
-
 // MARK: View model
 class TestManager: ObservableObject {
     
@@ -67,5 +48,4 @@ class TestManager: ObservableObject {
     func addQuestion(_ id: Int16, _ text: String) {
         manager.addQuestion(id, text: text)
     }
-    
 }

@@ -14,6 +14,7 @@
 		961F3EE329641A500055629F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE229641A500055629F /* ProfileModel.swift */; };
 		961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE429641A980055629F /* ProfileViewModel.swift */; };
 		961F3EE729641B9A0055629F /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F3EE629641B9A0055629F /* UserDataService.swift */; };
+		962152F9299776DB00416F9E /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962152F8299776DB00416F9E /* QuestionModel.swift */; };
 		965BC93F29640AC600C2DC9B /* iLawApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC93E29640AC600C2DC9B /* iLawApp.swift */; };
 		965BC94129640AC600C2DC9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC94029640AC600C2DC9B /* HomeView.swift */; };
 		965BC94329640AC800C2DC9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965BC94229640AC800C2DC9B /* Assets.xcassets */; };
@@ -23,6 +24,9 @@
 		965BC95229640D3300C2DC9B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BC95129640D3300C2DC9B /* ColorTheme.swift */; };
 		965E364329850F2B0078DE4F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E364229850F2B0078DE4F /* CustomDivider.swift */; };
 		966D23C4297BD02D00A054CD /* TestManagerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D23C3297BD02D00A054CD /* TestManagerVM.swift */; };
+		9680D5F829977D4400C52739 /* QuestionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680D5F629977D4400C52739 /* QuestionEntity.swift */; };
+		9680D5FB29977F8500C52739 /* AnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680D5FA29977F8500C52739 /* AnswerEntity.swift */; };
+		9680D5FD299781A200C52739 /* DropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680D5FC299781A200C52739 /* DropMenu.swift */; };
 		96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9B3072966C47400D787A7 /* WelcomeView.swift */; };
 		96D4C1B129939541001289A2 /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D4C1B029939540001289A2 /* QuestionItem.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +39,7 @@
 		961F3EE229641A500055629F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		961F3EE429641A980055629F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		961F3EE629641B9A0055629F /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		962152F8299776DB00416F9E /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		965BC93B29640AC600C2DC9B /* iLaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965BC93E29640AC600C2DC9B /* iLawApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLawApp.swift; sourceTree = "<group>"; };
 		965BC94029640AC600C2DC9B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -46,6 +51,9 @@
 		965BC95129640D3300C2DC9B /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		965E364229850F2B0078DE4F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		966D23C3297BD02D00A054CD /* TestManagerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManagerVM.swift; sourceTree = "<group>"; };
+		9680D5F629977D4400C52739 /* QuestionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionEntity.swift; path = /Users/chesnoked/Desktop/CodeSync/alex/iLaw/iLaw/CoreData/QuestionEntity.swift; sourceTree = "<absolute>"; };
+		9680D5FA29977F8500C52739 /* AnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerEntity.swift; path = /Users/chesnoked/Desktop/CodeSync/alex/iLaw/iLaw/CoreData/AnswerEntity.swift; sourceTree = "<absolute>"; };
+		9680D5FC299781A200C52739 /* DropMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMenu.swift; sourceTree = "<group>"; };
 		96C9B3072966C47400D787A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		96D4C1B029939540001289A2 /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
 		C365279F811A9057C800689A /* Pods_iLaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +83,8 @@
 		96051DC2297FC0D80073FAC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				9680D5F629977D4400C52739 /* QuestionEntity.swift */,
+				9680D5FA29977F8500C52739 /* AnswerEntity.swift */,
 				96051DBF297FC0D00073FAC6 /* MyContainer.xcdatamodeld */,
 				96051DC3297FC1ED0073FAC6 /* CoreDataManager.swift */,
 			);
@@ -93,8 +103,10 @@
 		961F3EDF29641A2A0055629F /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				962152F8299776DB00416F9E /* QuestionModel.swift */,
 				966D23C3297BD02D00A054CD /* TestManagerVM.swift */,
 				965BC94D29640BC600C2DC9B /* StartView.swift */,
+				9680D5FC299781A200C52739 /* DropMenu.swift */,
 				96D4C1B029939540001289A2 /* QuestionItem.swift */,
 			);
 			path = Start;
@@ -323,16 +335,20 @@
 				965BC95229640D3300C2DC9B /* ColorTheme.swift in Sources */,
 				966D23C4297BD02D00A054CD /* TestManagerVM.swift in Sources */,
 				961F3EE729641B9A0055629F /* UserDataService.swift in Sources */,
+				9680D5F829977D4400C52739 /* QuestionEntity.swift in Sources */,
 				965BC94E29640BC600C2DC9B /* StartView.swift in Sources */,
+				9680D5FB29977F8500C52739 /* AnswerEntity.swift in Sources */,
 				965E364329850F2B0078DE4F /* CustomDivider.swift in Sources */,
 				96C9B3082966C47400D787A7 /* WelcomeView.swift in Sources */,
 				96051DC4297FC1ED0073FAC6 /* CoreDataManager.swift in Sources */,
 				961F3EE329641A500055629F /* ProfileModel.swift in Sources */,
+				962152F9299776DB00416F9E /* QuestionModel.swift in Sources */,
 				965BC94129640AC600C2DC9B /* HomeView.swift in Sources */,
 				96D4C1B129939541001289A2 /* QuestionItem.swift in Sources */,
 				96051DC1297FC0D00073FAC6 /* MyContainer.xcdatamodeld in Sources */,
 				965BC93F29640AC600C2DC9B /* iLawApp.swift in Sources */,
 				961F3EE529641A980055629F /* ProfileViewModel.swift in Sources */,
+				9680D5FD299781A200C52739 /* DropMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
