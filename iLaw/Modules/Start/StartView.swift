@@ -66,13 +66,22 @@ extension StartView {
     }
     private func addQuestion() {
         guard let id = Int16(id),
-              !text.isEmpty
+              !text.isEmpty,
+              answersTextIsEmpty()
         else {
             self.id = ""
             self.text = ""
             return
         }
-        testVM.addQuestion(id, text)
+        testVM.addQuestion(id, text, self.testVM.answers)
+    }
+    private func answersTextIsEmpty() -> Bool {
+        guard !self.testVM.answers.isEmpty else { return false }
+        var bool = true
+        self.testVM.answers.forEach { oneAnswer in
+            bool = bool && oneAnswer.text.isEmpty
+        }
+        return bool
     }
 }
 

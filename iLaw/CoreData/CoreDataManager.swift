@@ -56,10 +56,17 @@ class CoreDataManager {
         }
     }
     
-    func addQuestion(_ id: Int16, text: String) {
+    func addQuestion(_ id: Int16, _ text: String, _ answers: [AnswerEntity]) {
         let question = QuestionEntity(context: container.viewContext)
         question.id = id
         question.text = text
-        applyChanges()
+        
+        answers.forEach { oneAnswerEntity in
+            self.addAnswer(question, oneAnswerEntity)
+            applyChanges()
+        }
+    }
+    func addAnswer(_ question: QuestionEntity, _ answer: AnswerEntity) {
+        question.addToAnswers(answer)
     }
 }

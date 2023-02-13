@@ -53,7 +53,17 @@ class TestManager: ObservableObject {
     }
     
     // for question
-    func addQuestion(_ id: Int16, _ text: String) {
-        manager.addQuestion(id, text: text)
+    func addQuestion(_ id: Int16, _ text: String, _ answers: [AnswerModel]) {
+        var answersEntities = [AnswerEntity]()
+        answers.forEach { oneAnswerModel in
+            let answer = AnswerEntity(context: self.manager.container.viewContext)
+            answer.id = oneAnswerModel.id
+            answer.text = oneAnswerModel.text
+            answer.isValid = oneAnswerModel.isValid
+            answersEntities.append(answer)
+            self.manager.applyChanges()
+        }
+        
+        manager.addQuestion(id, text, answersEntities)
     }
 }
