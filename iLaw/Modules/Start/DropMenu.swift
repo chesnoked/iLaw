@@ -17,7 +17,7 @@ struct DropMenu: View {
     @EnvironmentObject private var testVM: TestManager
     @Binding var id: String
     @Binding var text: String
-    @State private var amount: Int = 4
+//    @State private var amount: Int = 4
     @State private var isValid: Bool = false
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -32,36 +32,51 @@ struct DropMenu: View {
                         .font(.headline)
                         .foregroundColor(Color.palette.mercury)
                     Spacer()
-                    Picker(selection: $amount) {
+                    Picker(selection: $testVM.amount) {
                         ForEach(1...10, id: \.self) { index in
                             Text("\(index)")
                                 .tag(index)
                         }
                     } label: {
-                        Text("\(amount)")
+                        Text("\(self.testVM.amount)")
                     }
                 }
-                ForEach(1...amount, id: \.self) { index in
+                ForEach(0..<self.testVM.amount, id: \.self) { index in
                     // MARK: answers
                     HStack(alignment: .bottom) {
-                        TextEditor(text: $text)
-                            .environment(\.colorScheme, .light)
-                            .frame(height: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                            .overlay(alignment: .topLeading) {
-                                Text(self.text.isEmpty ? "answer \(index)" : "")
-                                    .font(.headline)
-                                    .foregroundColor(.black)
-                                    .opacity(0.3)
-                                    .padding(3)
-                            }
-                        Toggle("", isOn: $isValid)
-                            .labelsHidden()
-                            .padding(.horizontal)
+                        if let bindingAnswer = self.getBinding(index) {
+                            TextEditor(text: bindingAnswer.text)
+                                .environment(\.colorScheme, .light)
+                                .frame(height: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                                .overlay(alignment: .topLeading) {
+//                                    Text("123")
+                                    Text(self.textIsEmpty(index) ? "answer \(index + 1)" : "")
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                        .opacity(0.3)
+                                        .padding(EdgeInsets(top: 6, leading: 3, bottom: 3, trailing: 3))
+                                }
+                            Toggle("", isOn: bindingAnswer.isValid)
+                                .labelsHidden()
+                                .padding(.horizontal)
+                        }
+                        
+//                        TextEditor(text: $text)
+                        
                     }
                 }
             }
         }
+        .onChange(of: self.testVM.amount) { newValue in
+            print(newValue)
+        }
+    }
+    private func getBinding(_ index: Int) -> Binding<AnswerModel>? {
+        return self.$testVM.answers[index]
+    }
+    private func textIsEmpty(_ index: Int) -> Bool {
+        return self.testVM.answers[index].text.isEmpty
     }
 }
 

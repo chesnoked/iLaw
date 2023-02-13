@@ -19,8 +19,16 @@ class TestManager: ObservableObject {
     @Published var newQuestion: QuestionModel? = nil
     private var cancellables = Set<AnyCancellable>()
     
+    @Published var amount: Int = 4
+    @Published var answers: [AnswerModel] = []
+    
     init() {
         getQuestions()
+        getAnswers()
+    }
+    
+    private func getAnswers() {
+        self.answers = AnswerModel.answers
     }
     
     // for questions

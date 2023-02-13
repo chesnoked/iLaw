@@ -16,8 +16,17 @@ struct AnswerModel: Identifiable {
     }
     
     let id: Int16
-    let text: String
-    let isValid: Bool
+    var text: String
+    var isValid: Bool
+}
+
+extension AnswerModel {
+    static let answers: [AnswerModel] = [
+        AnswerModel(id: 1, text: "", isValid: false),
+        AnswerModel(id: 2, text: "", isValid: false),
+        AnswerModel(id: 3, text: "", isValid: false),
+        AnswerModel(id: 4, text: "", isValid: false)
+    ]
 }
 
 struct QuestionModel: Identifiable {
