@@ -14,7 +14,7 @@ public class QuestionEntity: NSManagedObject {
 
 }
 
-extension QuestionEntity {
+extension QuestionEntity: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<QuestionEntity> {
         return NSFetchRequest<QuestionEntity>(entityName: "QuestionEntity")

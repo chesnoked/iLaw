@@ -23,6 +23,15 @@ class CoreDataManager {
         }
         fetchQuestions()
     }
+    
+    func reset() {
+        if let questions = getQuestions() {
+            questions.forEach { oneQuestionEntity in
+                container.viewContext.delete(oneQuestionEntity)
+            }
+        }
+        applyChanges()
+    }
 
     private func fetchQuestions() {
         let request = NSFetchRequest<QuestionEntity>(entityName: "QuestionEntity")
@@ -30,6 +39,15 @@ class CoreDataManager {
             self.questions = try container.viewContext.fetch(request)
         } catch let error {
             print("Error fetch questions from Core Data : \(error.localizedDescription)")
+        }
+    }
+    private func getQuestions() -> [QuestionEntity]? {
+        let request = NSFetchRequest<QuestionEntity>(entityName: "QuestionEntity")
+        do {
+            return try container.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetch questions from Core Data : \(error.localizedDescription)")
+            return nil
         }
     }
     

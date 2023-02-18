@@ -30,25 +30,9 @@ struct QuestionItem: View {
             }
         )
         .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-        // MARK: testing
         .overlay(alignment: .bottom) {
-            VStack(alignment: .leading, spacing: 10) {
-                ForEach(1...4, id: \.self) { index in
-                    Button(action: {
-                        //
-                    }, label: {
-                        Text("\(index). AnswerAnswerAnswerAnswerAnswer")
-                            .font(.system(size: 16, weight: .light, design: .rounded))
-                            .foregroundColor(Color.white)
-                            .multilineTextAlignment(.leading)
-                            .padding(.horizontal)
-                            .padding(.vertical, 5)
-                            .background(Color.palette.lead)
-                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                    })
-                }
-            }
-            .padding(.bottom)
+            Answers()
+                .padding(.bottom)
         }
     }
 }
@@ -58,5 +42,33 @@ extension QuestionItem {
         Text(question.title)
             .font(.system(size: 23, weight: .semibold, design: .rounded))
             .foregroundColor(Color.palette.mercury)
+    }
+    private func Answers() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            ForEach(question.answers, id: \.self) { answer in
+                OneAnswer(answer: answer)
+            }
+        }
+    }
+}
+
+struct OneAnswer: View {
+    @State private var trigger: Bool? = nil
+    let answer: AnswerModel
+    var body: some View {
+        Text(answer.text)
+            .font(.system(size: 16, weight: .light, design: .rounded))
+            .foregroundColor(Color.white)
+            .multilineTextAlignment(.leading)
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+            .background(
+                self.trigger == nil ? Color.palette.lead : self.trigger! ? Color.green : Color.red
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+            .onTapGesture {
+                if answer.isValid { trigger = true }
+                else { trigger = false }
+            }
     }
 }

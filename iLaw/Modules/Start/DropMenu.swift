@@ -17,8 +17,6 @@ struct DropMenu: View {
     @EnvironmentObject private var testVM: TestManager
     @Binding var id: String
     @Binding var text: String
-//    @State private var amount: Int = 4
-    @State private var isValid: Bool = false
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
@@ -31,6 +29,13 @@ struct DropMenu: View {
                     Text("Answers")
                         .font(.headline)
                         .foregroundColor(Color.palette.mercury)
+                    // description
+                    
+                    Text(testVM.answersTextIsEmpty().description)
+                        .font(.system(size: 14, weight: .light, design: .rounded))
+                        .foregroundColor(Color.palette.mercury)
+                    
+                    //
                     Spacer()
                     Picker(selection: $testVM.amount) {
                         ForEach(1...10, id: \.self) { index in
